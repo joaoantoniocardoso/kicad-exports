@@ -44,7 +44,7 @@ jobs:
         config: test/bom.kiplot.yaml
         dir: test/docs/bom
         board: test/test.kicad_pcb
-        schematic: test/test.sch
+        schema: test/test.sch
     - name: "check output: bom"
       if: success()
       uses: andstor/file-existence-action@v1
@@ -67,7 +67,7 @@ jobs:
         config: test/fabrication.kiplot.yaml
         dir: test/gerber
         board: test/test.kicad_pcb
-        schematic: test/test.sch
+        schema: test/test.sch
     - name: "check output: kiplot-position"
       uses: andstor/file-existence-action@v1
       with:
@@ -98,7 +98,7 @@ jobs:
       with:
         config: test/report.kiplot.yaml
         dir: test
-        schematic: test/test.sch
+        schema: test/test.sch
         board: test/test.kicad_pcb
     - name: "check output: erc"
       uses: andstor/file-existence-action@v1
@@ -123,7 +123,7 @@ jobs:
       with:
         config: test/tracespace-board.kiplot.yaml
         dir: test/docs/img
-        schematic: test/test.sch
+        schema: test/test.sch
         board: test/test.kicad_pcb
     - name: "check output: tracespace-board"
       uses: andstor/file-existence-action@v1
@@ -135,7 +135,7 @@ jobs:
       with:
         config: test/tracespace-assembly.kiplot.yaml
         dir: test/docs/img
-        schematic: test/test.sch
+        schema: test/test.sch
         board: test/test.kicad_pcb
     - name: "check output: tracespace-assembly"
       uses: andstor/file-existence-action@v1
