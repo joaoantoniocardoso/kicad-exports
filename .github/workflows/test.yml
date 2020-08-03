@@ -20,10 +20,10 @@ jobs:
     - name: kicad-exports schematic docs
       uses: joaoantoniocardoso/kicad-exports@dev/wip
       with:
-        cmd: schematic
+        config: test/schematic.kiplot.yaml
         dir: test/docs
         board: test/test.kicad_pcb
-        schematic: test/test.sch
+        schema: test/test.sch
     - name: kicad-schematic
       uses: andstor/file-existence-action@v1
       with:
@@ -31,7 +31,7 @@ jobs:
     - uses: actions/upload-artifact@v2
       if: success()
       with:
-        name: schematic
+        name: docs
         path: test/docs/*
 
   bom:
@@ -41,7 +41,7 @@ jobs:
     - name: kicad-exports ibom docs/bom
       uses: joaoantoniocardoso/kicad-exports@dev/wip
       with:
-        cmd: bom
+        config: test/bom.kiplot.yaml
         dir: test/docs/bom
         board: test/test.kicad_pcb
         schematic: test/test.sch
@@ -64,7 +64,7 @@ jobs:
     - name: kicad-exports fabrication gerber
       uses: joaoantoniocardoso/kicad-exports@dev/wip
       with:
-        cmd: fabrication
+        config: test/fabrication.kiplot.yaml
         dir: test/gerber
         board: test/test.kicad_pcb
         schematic: test/test.sch
@@ -96,7 +96,7 @@ jobs:
     - name: kicad-exports report
       uses: joaoantoniocardoso/kicad-exports@dev/wip
       with:
-        cmd: report
+        config: test/report.kiplot.yaml
         dir: test
         schematic: test/test.sch
         board: test/test.kicad_pcb
@@ -121,7 +121,7 @@ jobs:
     - name: kicad-exports tracespace-board
       uses: joaoantoniocardoso/kicad-exports@dev/wip
       with:
-        cmd: tracespace-board
+        config: test/tracespace-board.kiplot.yaml
         dir: test/docs/img
         schematic: test/test.sch
         board: test/test.kicad_pcb
@@ -133,7 +133,7 @@ jobs:
     - name: kicad-exports tracespace-assembly
       uses: joaoantoniocardoso/kicad-exports@dev/wip
       with:
-        cmd: tracespace-assembly
+        config: test/tracespace-assembly.kiplot.yaml
         dir: test/docs/img
         schematic: test/test.sch
         board: test/test.kicad_pcb
