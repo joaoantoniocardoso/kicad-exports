@@ -20,7 +20,7 @@ jobs:
     - name: kicad-exports schematic docs
       uses: joaoantoniocardoso/kicad-exports@dev/wip
       with:
-        config: test/schematic.kiplot.yaml
+        config: schematics.kiplot.yaml
         dir: test/docs
         board: test/test.kicad_pcb
         schema: test/test.sch
@@ -41,7 +41,7 @@ jobs:
     - name: kicad-exports ibom docs/bom
       uses: joaoantoniocardoso/kicad-exports@dev/wip
       with:
-        config: test/bom.kiplot.yaml
+        config: bom.kiplot.yaml
         dir: test/docs/bom
         board: test/test.kicad_pcb
         schema: test/test.sch
@@ -64,7 +64,7 @@ jobs:
     - name: kicad-exports fabrication gerber
       uses: joaoantoniocardoso/kicad-exports@dev/wip
       with:
-        config: test/fabrication.kiplot.yaml
+        config: fabrication.kiplot.yaml
         dir: test/gerber
         board: test/test.kicad_pcb
         schema: test/test.sch
@@ -88,61 +88,61 @@ jobs:
         name: gerber
         path: test/gerber/*
 
-  report:
-    runs-on: ubuntu-latest
-    continue-on-error: true
-    steps:
-    - uses: actions/checkout@v2
-    - name: kicad-exports report
-      uses: joaoantoniocardoso/kicad-exports@dev/wip
-      with:
-        config: test/report.kiplot.yaml
-        dir: test
-        schema: test/test.sch
-        board: test/test.kicad_pcb
-    - name: "check output: erc"
-      uses: andstor/file-existence-action@v1
-      with:
-        files: "test/test.erc"
-    - name: "check output: drc"
-      uses: andstor/file-existence-action@v1
-      with:
-        files: "test/test.rpt"
-    - uses: actions/upload-artifact@v2
-      with:
-        name: report
-        path: test/
+#  report:
+#    runs-on: ubuntu-latest
+#    continue-on-error: true
+#    steps:
+#    - uses: actions/checkout@v2
+#    - name: kicad-exports report
+#      uses: joaoantoniocardoso/kicad-exports@dev/wip
+#      with:
+#        config: report.kiplot.yaml
+#        dir: test
+#        schema: test/test.sch
+#        board: test/test.kicad_pcb
+#    - name: "check output: erc"
+#      uses: andstor/file-existence-action@v1
+#      with:
+#        files: "test/test.erc"
+#    - name: "check output: drc"
+#      uses: andstor/file-existence-action@v1
+#      with:
+#        files: "test/test.rpt"
+#    - uses: actions/upload-artifact@v2
+#      with:
+#        name: report
+#        path: test/
 
-  tracespace:
-    runs-on: ubuntu-latest
-    continue-on-error: true
-    steps:
-    - uses: actions/checkout@v2
-    - name: kicad-exports tracespace-board
-      uses: joaoantoniocardoso/kicad-exports@dev/wip
-      with:
-        config: test/tracespace-board.kiplot.yaml
-        dir: test/docs/img
-        schema: test/test.sch
-        board: test/test.kicad_pcb
-    - name: "check output: tracespace-board"
-      uses: andstor/file-existence-action@v1
-      with:
-        files: "test/docs/img/test_Board_Top.svg, test/docs/img/test_Board_Bottom.svg"
-
-    - name: kicad-exports tracespace-assembly
-      uses: joaoantoniocardoso/kicad-exports@dev/wip
-      with:
-        config: test/tracespace-assembly.kiplot.yaml
-        dir: test/docs/img
-        schema: test/test.sch
-        board: test/test.kicad_pcb
-    - name: "check output: tracespace-assembly"
-      uses: andstor/file-existence-action@v1
-      with:
-        files: "test/docs/img/test_Assembly_Top.svg, test/docs/img/test_Assembly_Bottom.svg"
-
-    - uses: actions/upload-artifact@v2
-      with:
-        name: images
-        path: test/docs/img/*
+#  tracespace:
+#    runs-on: ubuntu-latest
+#    continue-on-error: true
+#    steps:
+#    - uses: actions/checkout@v2
+#    - name: kicad-exports tracespace-board
+#      uses: joaoantoniocardoso/kicad-exports@dev/wip
+#      with:
+#        config: tracespace-board.kiplot.yaml
+#        dir: test/docs/img
+#        schema: test/test.sch
+#        board: test/test.kicad_pcb
+#    - name: "check output: tracespace-board"
+#      uses: andstor/file-existence-action@v1
+#      with:
+#        files: "test/docs/img/test_Board_Top.svg, test/docs/img/test_Board_Bottom.svg"
+#
+#    - name: kicad-exports tracespace-assembly
+#      uses: joaoantoniocardoso/kicad-exports@dev/wip
+#      with:
+#        config: test/tracespace-assembly.kiplot.yaml
+#        dir: test/docs/img
+#        schema: test/test.sch
+#        board: test/test.kicad_pcb
+#    - name: "check output: tracespace-assembly"
+#      uses: andstor/file-existence-action@v1
+#      with:
+#        files: "test/docs/img/test_Assembly_Top.svg, test/docs/img/test_Assembly_Bottom.svg"
+#
+#    - uses: actions/upload-artifact@v2
+#      with:
+#        name: images
+#        path: test/docs/img/*
