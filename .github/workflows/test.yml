@@ -18,7 +18,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: kicad-exports schematic docs
-      uses: nerdyscout/kicad-exports@master
+      uses: joaoantoniocardoso/kicad-exports@dev/wip
       with:
         cmd: schematic
         dir: test/docs
@@ -39,7 +39,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: kicad-exports ibom docs/bom
-      uses: nerdyscout/kicad-exports@master
+      uses: joaoantoniocardoso/kicad-exports@dev/wip
       with:
         cmd: bom
         dir: test/docs/bom
@@ -62,7 +62,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: kicad-exports fabrication gerber
-      uses: nerdyscout/kicad-exports@master
+      uses: joaoantoniocardoso/kicad-exports@dev/wip
       with:
         cmd: fabrication
         dir: test/gerber
@@ -94,7 +94,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: kicad-exports report
-      uses: nerdyscout/kicad-exports@master
+      uses: joaoantoniocardoso/kicad-exports@dev/wip
       with:
         cmd: report
         dir: test
@@ -119,7 +119,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: kicad-exports tracespace-board
-      uses: nerdyscout/kicad-exports@master
+      uses: joaoantoniocardoso/kicad-exports@dev/wip
       with:
         cmd: tracespace-board
         dir: test/docs/img
@@ -131,7 +131,7 @@ jobs:
         files: "test/docs/img/test_Board_Top.svg, test/docs/img/test_Board_Bottom.svg"
 
     - name: kicad-exports tracespace-assembly
-      uses: nerdyscout/kicad-exports@master
+      uses: joaoantoniocardoso/kicad-exports@dev/wip
       with:
         cmd: tracespace-assembly
         dir: test/docs/img
