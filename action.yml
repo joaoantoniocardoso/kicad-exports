@@ -19,7 +19,9 @@ inputs:
     default: $(ls *.sch | head -n1)
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+#  image: 'Dockerfile'
+#  image: docker://nerdyscout/kicad-exports:v2.0
+  image: docker://joaoantoniocardoso/kicad-exports:latest
   args:
     - -c ${{ inputs.config }}
     - -d ${{ inputs.dir }}
