@@ -35,60 +35,60 @@ jobs:
         name: docs
         path: test/docs/*
 
-#  bom:
-#    runs-on: ubuntu-latest
-#    steps:
-#    - uses: actions/checkout@v2
-#    - name: kicad-exports ibom docs/bom
-#      uses: joaoantoniocardoso/kicad-exports@dev/wip
-#      with:
-#        config: bom.kiplot.yaml
-#        dir: test/docs/bom
-#        board: test/test.kicad_pcb
-#        schema: test/test.sch
-#    - name: "check output: bom"
-#      if: success()
-#      uses: andstor/file-existence-action@v1
-#      with:
-#        files: "test/docs/bom/ibom.html, test/docs/bom/test.csv, test/docs/bom/test.xlsx"
-#    - uses: actions/upload-artifact@v2
-#      if: success()
-#      with:
-#        name: bom
-#        path: test/docs/bom/*
-#
-#  fabrication:
-#    runs-on: ubuntu-latest
-#    continue-on-error: true
-#    steps:
-#    - uses: actions/checkout@v2
-#    - name: kicad-exports fabrication gerber
-#      uses: joaoantoniocardoso/kicad-exports@dev/wip
-#      with:
-#        config: fabrication.kiplot.yaml
-#        dir: test/gerber
-#        board: test/test.kicad_pcb
-#        schema: test/test.sch
-#    - name: "check output: kiplot-position"
-#      uses: andstor/file-existence-action@v1
-#      with:
-#        files: "test/gerber/test-both-pos.csv"
-#    - name: "check output: kiplot-drills"
-#      uses: andstor/file-existence-action@v1
-#      with:
-#        files: "test/gerber/test-PTH.drl, test/gerber/test-NPTH.drl"
-#    - uses: andstor/file-existence-action@v1
-#      with:
-#        files: "test/gerber/test-PTH-drl.gbr, test/gerber/test-NPTH-drl.gbr"
-#    - name: "check output: kiplot-gerber"
-#      uses: andstor/file-existence-action@v1
-#      with:
-#        files: "test/gerber/test-Edge_Cuts.gbr, test/gerber/test-F_Cu.gbr, test/gerber/test-B_SilkS.gbr"
-#    - uses: actions/upload-artifact@v2
-#      with:
-#        name: gerber
-#        path: test/gerber/*
-#
+  bom:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: kicad-exports ibom docs/bom
+      uses: joaoantoniocardoso/kicad-exports@dev/wip
+      with:
+        config: bom.kiplot.yaml
+        dir: test/docs/bom
+        board: test/test.kicad_pcb
+        schema: test/test.sch
+    - name: "check output: bom"
+      if: success()
+      uses: andstor/file-existence-action@v1
+      with:
+        files: "test/docs/bom/ibom.html, test/docs/bom/test.csv, test/docs/bom/test.xlsx"
+    - uses: actions/upload-artifact@v2
+      if: success()
+      with:
+        name: bom
+        path: test/docs/bom/*
+
+  fabrication:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+    - uses: actions/checkout@v2
+    - name: kicad-exports fabrication gerber
+      uses: joaoantoniocardoso/kicad-exports@dev/wip
+      with:
+        config: fabrication.kiplot.yaml
+        dir: test/gerber
+        board: test/test.kicad_pcb
+        schema: test/test.sch
+    - name: "check output: kiplot-position"
+      uses: andstor/file-existence-action@v1
+      with:
+        files: "test/gerber/test-both-pos.csv"
+    - name: "check output: kiplot-drills"
+      uses: andstor/file-existence-action@v1
+      with:
+        files: "test/gerber/test-PTH.drl, test/gerber/test-NPTH.drl"
+    - uses: andstor/file-existence-action@v1
+      with:
+        files: "test/gerber/test-PTH-drl.gbr, test/gerber/test-NPTH-drl.gbr"
+    - name: "check output: kiplot-gerber"
+      uses: andstor/file-existence-action@v1
+      with:
+        files: "test/gerber/test-Edge_Cuts.gbr, test/gerber/test-F_Cu.gbr, test/gerber/test-B_SilkS.gbr"
+    - uses: actions/upload-artifact@v2
+      with:
+        name: gerber
+        path: test/gerber/*
+
 #  report:
 #    runs-on: ubuntu-latest
 #    continue-on-error: true
