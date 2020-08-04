@@ -22,11 +22,18 @@ runs:
 #  image: 'Dockerfile'
 #  image: docker://nerdyscout/kicad-exports:v2.0
   image: docker://joaoantoniocardoso/kicad-exports:latest
+#  args: ${{ format('-c {0} -d {1} -b {2} -e {3}', 'schematics.kiplot.yaml', 'test/docs', 'test/test.kicad_pcb', 'test/test.sch') }}
+  env:
+    CONFIG: ${{ inputs.config }}
+    DIR: ${{ inputs.dir }}
+    BOARD: ${{ inputs.board }}
+    SCHEMA: ${{ inputs.schema }}
   args:
-    - -c ${{ inputs.config }}
-    - -d ${{ inputs.dir }}
-    - -b ${{ inputs.board }}
-    - -e ${{ inputs.schema }}
+    -  --verbose
+    -  -c ${{ inputs.config }}
+    -  -d ${{ inputs.dir }}
+    -  -b ${{ inputs.board }}
+    -  -e ${{ inputs.schema }}
 branding:
   icon: 'cpu'
   color: 'green'
